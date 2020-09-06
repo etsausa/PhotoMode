@@ -108,7 +108,7 @@ button:hover {
 /* Header */
 header{
     width: 100%;
-    background-image: url(../img/DSC_0175.jpg);
+    background-image: url(./img/DSC_0175.jpg);
     background-color: #ffffff;
     background-size: cover;   
     margin: 0;
