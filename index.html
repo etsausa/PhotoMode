@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo_Mode</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="./js/suncalc.js"></script>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/index-script.js" defer></script>
+    <script src="./js/gh-script.js" defer></script>
+
+</head>
+<body>
+    <header>
+
+        <div class="header-text">
+            <img src="../img/PM_Logo.svg" id="logo"> 
+        </div>
+        
+    </header>
+
+    <div id="content" class="col">
+        <hr>
+        <div id="location" class="row">
+            <button id="getLocBtn" onclick="getCoords()">get location</button>
+            <div id="locLabel" class="col">
+                <span><b><div class="inline" id="lat"></div></b> lattitude</span>
+                <span><b><div class="inline" id="long"></div></b> longitude</span>
+            </div>
+        </div>
+        <hr>
+
+        <div class="col" id="timeline">
+        
+        </div>
+    </div>
+    
+</body>
+</html>
