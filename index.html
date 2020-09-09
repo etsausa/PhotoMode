@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo_Mode</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="./js/suncalc.js"></script>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/index-script.js" defer></script>
+    <script src="./js/gh-script.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <div class="header-text col">
+            <img src="./img/PM_Logo.svg" id="logo"> 
+        </div>   
+    </header>
+
+    <div id="content" class="col">
+        <p>Please allow this site to access your location 
+            or enter a location below to look up 
+            the local photography times for your area</p>
+        <hr>
+        <div id="location" class="row">
+
+            <button id="getLocBtn" onclick="getCoords()">get location</button>
+
+            <div id="latLongLabel" class="row">
+                <span><b><div id="lat" style="display: inline;"></div></b> lattitude</span>
+                <span><b><div id="long" style="display: inline;"></div></b> longitude</span>
+            </div>
+    
+        </div>
+        <hr>
+
+        <div class="col" id="timeline">
+        
+        </div>
+    </div>
+    
+</body>
+</html>
