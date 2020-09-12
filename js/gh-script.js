@@ -4,9 +4,6 @@
 let lat;
 let long;
 
-let latStr;
-let longStr;
-
 //use 24h 
 const twentyFour = true; 
 
@@ -36,13 +33,45 @@ function functionCalls(){
 
 /*
 Initializing Page
+    -getCoords
     -Create Major Page Elements
     -Calculate sun data
 */
+function getCoords(){
+    console.log("getting coords...")
+        if (navigator.geolocation) {
+            console.log("found geolocator...")
+            navigator.geolocation.getCurrentPosition(
+                function(pos){
+                    console.log(`coords ${pos.coords.latitude} , ${pos.coords.longitude}`);
+
+                    //set coords from navitation data
+                    lat = pos.coords.latitude;
+                    long = pos.coords.longitude;
+
+                    //round values
+                    lat = Math.round(lat, 5);
+                    long = Math.round(long, 5);
+
+                    console.log("lat: " + lat);
+                    console.log("long: " + long);
+
+                    document.getElementById("getLocBtn").remove();
+    
+                    document.getElementById("latLongLabel").style.display = "block";
+
+                    //call golden hour functions
+                    functionCalls();
+                },
+                function(){console.log("error!");  }
+            );
+        }
+}
+
 function initPage(){
     console.log("innit page")
-    document.getElementById("lat").innerHTML = latStr;
-    document.getElementById("long").innerHTML = longStr;
+    document.getElementById("lat").innerHTML = lat;
+    document.getElementById("long").innerHTML = long;
 }
 
 function initTimes(){
@@ -80,38 +109,6 @@ function initTimes(){
     times.set('Day End', { hour: 24, minute: 0})
 }
 
-function getCoords(){
-    console.log("getting coords...")
-        if (navigator.geolocation) {
-            console.log("found geolocator...")
-            navigator.geolocation.getCurrentPosition(
-                function(pos){
-                    console.log(`coords ${pos.coords.latitude} , ${pos.coords.longitude}`);
-
-                    //set coords from navitation data
-                    lat = pos.coords.latitude;
-                    long = pos.coords.longitude;
-
-                    //round values and set strings
-                    lat = Math.round(lat, 5);
-                    long = Math.round(long, 5);
-                    latStr = lat;
-                    longStr = long;
-
-                    console.log("lat: " + lat);
-                    console.log("long: " + long);
-
-                    document.getElementById("getLocBtn").remove();
-    
-                    document.getElementById("latLongLabel").style.display = "block";
-
-                    //call golden hour functions
-                    functionCalls();
-                },
-                function(){console.log("error!");  }
-            );
-        }
-}
 /* ------ */
 
 /*
